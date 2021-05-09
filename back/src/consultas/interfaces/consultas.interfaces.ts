@@ -4,6 +4,7 @@ export interface Consultas extends Document{
     lastname: string;
     email: string;
     createdAt: Date;
+    assignedAt:Date;
     consulta: string;
     assigned:Boolean;
 } 

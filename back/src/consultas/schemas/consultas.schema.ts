@@ -15,6 +15,9 @@ export const ConsultaSchema =new Schema({
         type:Boolean,
         default:false
     },
+    assignedAt:{
+        type:Date
+    },
     complete:{
         type:Boolean,
         default:false
