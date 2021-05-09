@@ -4,12 +4,12 @@ export const ConsultaSchema =new Schema({
     name: String,
     lastname: String,
     email: {
-        String,         
+        type:String,         
     },
     consulta: String,
     createdAt: {
         type: Date,
-        default: Date.now
+        default: Date.now()
     },
     assigned:{
         type:Boolean,
@@ -21,6 +21,9 @@ export const ConsultaSchema =new Schema({
     complete:{
         type:Boolean,
         default:false
+    },
+    answer:{
+        type:String
     }
 
 });

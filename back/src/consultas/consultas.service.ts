@@ -19,16 +19,19 @@ export class ConsultasService {
     async getConsulta():Promise<Consultas>{
         const consultas = await this.consultasModel.find({complete:false})
         if (!consultas) return         
-        let elder:Consultas=consultas[0]
+        let elder:Consultas=await this.consultasModel.findOne({complete:false,assigned:false})
+        if(!elder) elder=consultas[0]
         let late:Consultas
         consultas.forEach(consulta=>{
-            if( consulta.createdAt<elder.createdAt){
+            if(!consulta.assigned && consulta.createdAt<elder.createdAt){
                 elder=consulta
             }
-            if(consulta.assignedAt && Date.now() - consulta.assignedAt.getTime()>30*60*1000 ){
+            if(consulta.assignedAt && Date.now() - consulta.assignedAt.getTime()>10*60*1000 ){
+                console.log(Date.now() - consulta.assignedAt.getTime())
                 late=consulta
             }
         })        
+        console.log(elder,late)
         if (late) {
             late.assignedAt= new Date()
             return await late.save()

@@ -37,7 +37,11 @@ export class ConsultasController {
     @Get('/one')
     async getConsulta(@Res() res) {
         const consultas = await this.consultasServices.getConsulta();
-        if (!consultas) throw new NotFoundException('No hay mas Consultas!');
+        if (!consultas) {
+            return res.status(HttpStatus.OK).json({
+                message:"No hay mas Consultas!!"              
+            });
+        }
         return res.status(HttpStatus.OK).json({
             message:"Una Consulta",
             consultas

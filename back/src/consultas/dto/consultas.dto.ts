@@ -4,4 +4,5 @@ export  class CreateCosultaDTO{
     email: string;
     createdAt: Date;
     consulta: string;
+    answer: string;
 }

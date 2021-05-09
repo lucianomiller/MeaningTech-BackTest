@@ -1,0 +1,9 @@
+.body {
+    background-color: black;
+    max-width: 1170px;
+    min-width: 500px;
+    margin: auto auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
