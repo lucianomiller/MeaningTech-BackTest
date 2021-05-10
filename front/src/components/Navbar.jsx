@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 function Navbar() {
     return (
@@ -6,7 +7,9 @@ function Navbar() {
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="/">Contact Us</a>
-                    <a class="navbar-brand" href="/answer">Answer</a>                 
+                    <Link to ="/answer" style={{textDecoration:"none"}}>                    
+                    <a class="navbar-brand" >Answer</a>                 
+                    </Link> 
                 </div>
             </nav>            
         </div>
